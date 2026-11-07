@@ -1,0 +1,19 @@
+# Overlay for the harness-level check:
+#
+#   pnpm dsh --profile headless --patch examples/hello-plugin/dev/harness.overlay.yml "say hi"
+#
+# It mounts the bundle's two plugins plus a development plugin that prints the
+# registered tool names, so the boot log shows that the tool reached the
+# harness tool registry.
+#
+# Relative plugin names anchor beside this overlay file, so the bundle's
+# plugins are one directory up.
+- insert:
+    - id: hello-tool
+      name: '../index.js'
+      config:
+        greeting: Hi
+    - id: hello-observer
+      name: '../observer.js'
+    - id: hello-list-tools
+      name: './list-tools.js'

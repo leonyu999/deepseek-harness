@@ -1,0 +1,12 @@
+# The bundle layer.
+#
+# The rows name plugin files beside this patch, so the layer resolves both
+# when the bundle is installed into a profile and when it is passed to
+# `dsh --patch` from a checkout.
+- insert:
+    - id: hello-tool
+      name: './index.js'
+      config:
+        greeting: Hi
+    - id: hello-observer
+      name: './observer.js'
